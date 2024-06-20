@@ -1,42 +1,93 @@
-PNAD mensal Trabalho
+Indicadores apenas brasil na versão 1.0
+
+Superavit Primário
+4639 NFSP sem desvalorização cambial - Fluxo mensal corrente - Resultado primário - Total - Governo Federal e Banco Central
+4649 NFSP sem desvalorização cambial - Fluxo mensal corrente - Resultado primário - Total - Setor público consolidado
+4782 NFSP sem desvalorização cambial - Fluxo acumulado no ano - Resultado primário - Total - Governo Federal e Banco Central
+4792 NFSP sem desvalorização cambial - Fluxo acumulado no ano - Resultado primário - Total - Setor público consolidado
+5068 NFSP sem desvalorização cambial - Fluxo acumulado em 12 meses - Resultado primário - Total - Governo Federal e Banco Central
+5078 NFSP sem desvalorização cambial - Fluxo acumulado em 12 meses - Resultado primário - Total - Setor público consolidado
+5354 NFSP sem desvalorização cambial (% PIB) - Fluxo mensal corrente - Resultado primário - Total - Governo Federal e Banco Central
+5364 NFSP sem desvalorização cambial (% PIB) - Fluxo mensal corrente - Resultado primário - Total - Setor público consolidado
+5497 NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado no ano - Resultado primário - Total - Governo Federal e Banco Central
+5507 NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado no ano - Resultado primário - Total - Setor público consolidado
+5783 NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses - Resultado primário - Total - Governo Federal e Banco Central
+5793 NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses - Resultado primário - Total - Setor público consolidado
+Dívida Pública
+4503 Dívida Líquida do Setor Público (% PIB) - Total - Governo Federal e Banco Central
+4513 Dívida Líquida do Setor Público (% PIB) - Total - Setor público consolidado
+PIB (decomposição sob ótica da demanda)
+Tabela 1846 - PIB Tri Valores a preços correntes
+Tabela 5932 - PIB Taxa de variação do índice de volume trimestral
+Tabela 6784 - PIB Anual Produto Interno Bruto, Produto Interno Bruto per capita, População residente e Deflator
+População
+Tabela 6022 - População - Total
+Tabela 6415 - População Anual
+Tabela 7521 - população por classe social Anual
+Tabela 6706 - Pirâmide Etária anual
+Emprego
 Tabela 6318 - Total da força de trabalho, força de trabalho ocupada e desocupada
 Tabela 6380 - Nível de desocupação
 Tabela 6381 - Taxa de desocupação
 Tabela 6785 - Taxa de subocupação por insuficiência de horas trabalhadas
 Tabela 6807 - Percentual de pessoas desalentadas
-Tabela 8513 - Taxa de informaidade
+Tabela 8513 - Taxa de informalidade
 Tabela 5944 - Taxa de participação na força de trabalho
-
-PNAD mensal Rendimento
+Renda
 Tabela 6392 e 6393 - Massa de rendimento real
 Tabela 6391 - Rendimento por agrupamento de trabalho
 Tabela 6389 - Rendimento por empregador, empregado, funça, conta própria
 Tabela 6388 - Rendimento mensal geral trabalho principal
 Tabela 6387 - Rendimento mensal geral todos os trabalhos
-
-PNAD trimestre Rendimento e trabalho
-Análise de sexo, raça, instrução, idade.
-
-PNAD anual - nivel de cidades
-Tabela 6706 - Piramide Etária
-Tabela 7113 - Taxa de analfabetismo
-Tabela 7182 - Piramide de escolaridade
-Tabela 7138 e 7139 - Taxa de escolarização por sexo, idade, e raça
-Tabela 6415 - População
-Tabela 7453 - Indice de Gini
-Tabela 7438 - limites superiores das classes sociais por rendimento
-Tabela 7521 - população por classe social
-Tabela 7527 - distribuição da massa salarial por classe social
-Tabela 7531 - rendimento por classe social
-Tabela 7339 - domicilios com computador ou tablet
-
-Contas Anuais
-Tabela 6784 - PIB
-
-Índice de Preços
-Tabela 58 - Variação IPCA 
-Tabela 1419 - Variação IPCA 12 meses
-
+Desigualdade
+Tabela 7453 - Índice de Gini anual
+Tabela 7438 - limites superiores das classes sociais por rendimento anual
+Tabela 7521 - população por classe social anual
+Tabela 7527 - distribuição da massa salarial por classe social anual
+Tabela 7531 - rendimento por classe social anual
+Escolaridade
+Tabela 7113 - Taxa de analfabetismo anual
+Tabela 7182 - Pirâmide de escolaridade anual
+Tabela 7138 e 7139 - Taxa de escolarização por sexo, idade, e raça anual
+Câmbio
+21619 Taxa de câmbio - Livre - Euro (venda)
+21623 Taxa de câmbio - Livre - Libra Esterlina (venda)
+1 Taxa de câmbio - Livre - Dólar americano (venda)
+Inflação
+Tabela 1419 - IPCA
+Tabela 7063 - INPC
+189 Índice geral de preços do mercado (IGP-M)
+13521 Meta para a inflação
+Juros
+12 Taxa de juros - CDI
+11 Taxa de juros - Selic
+432 Taxa de juros - Meta Selic definida pelo Copom
+Crédito
+20539 Saldo - Total
+20540 Saldo - Pessoas jurídicas - Total
+20541 Saldo - Pessoas físicas - Total
+20631 Concessões - Total
+20632 Concessões - Pessoas jurídicas - Total
+20633 Concessões - Pessoas físicas - Total
+Endividamento das Famílias
+29037 Endividamento das famílias com o Sistema Financeiro Nacional em relação à renda acumulada dos últimos doze meses (RNDBF)
+29038 Endividamento das famílias com o Sistema Financeiro Nacional exceto crédito habitacional em relação à renda acumulada dos últimos 12 meses (RNDBF)
+Confiança do público
+4393 Índice de Confiança do Consumidor
+7341 Índice de Confiança do Empresário Industrial (ICEI) - Geral
+7342 Índice de Confiança do Empresário Industrial (ICEI) -Condições
+7343 Índice de Confiança do Empresário Industrial (ICEI) - Expectativas
+17660 Sondagem de Serviços - Índice de Confiança de Serviços
+Consumo de Energia
+1402 Consumo de energia elétrica - Comercial
+1403 Consumo de energia elétrica - Brasil - Residencial
+1404 Consumo de energia elétrica - Brasil - Industrial
+1405 Consumo de energia elétrica - Brasil - Outros
+1406 Consumo de energia elétrica - Brasil - Total
 Construção
 Tabela 647 - Custo de projeto m² por tipo de projeto
 Tabela 2296 - Custo médio em moeda corrente
+Bolsa
+Risco
+Número de empresas
+Expectativas
