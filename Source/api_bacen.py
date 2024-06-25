@@ -1,5 +1,8 @@
 import requests
 import pandas as pd
+import os
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
 
 # Lista de URLs, descritores e descrições
 series = [
@@ -44,35 +47,37 @@ series = [
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1403/dados', 'tabela': '1403', 'descricao': 'Consumo de energia elétrica - Brasil - Residencial', 'unidade':'GWh', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1404/dados', 'tabela': '1404', 'descricao': 'Consumo de energia elétrica - Brasil - Industrial', 'unidade':'GWh', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1405/dados', 'tabela': '1405', 'descricao': 'Consumo de energia elétrica - Brasil - Outros', 'unidade':'GWh', 'periodicidade': 'M'},
-    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1406/dados', 'tabela': '1406', 'descricao': 'Consumo de energia elétrica - Brasil - Total', 'unidade':'GWh', 'periodicidade': 'M'},
+    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1406/dados', 'tabela': '1406', 'descricao': 'Consumo de energia elétrica - Brasil - Total', 'unidade':'GWh', 'periodicidade': 'M'}
 ]
 
-# Parâmetros da requisição
-parametros = {'formato': 'json'}
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
 
-# Dicionário para armazenar DataFrames
-dataframes = {}
+server = os.getenv("DB_SERVER")
+database = os.getenv("DB_DATABASE")
+username = os.getenv("DB_USERNAME")
+password = os.getenv("DB_PASSWORD")
 
-# Loop para iterar sobre as séries
+# Criar a conexão com o banco de dados
+conn_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC Driver 17 for SQL Server"
+engine = create_engine(conn_str)
+
+# Loop pelas séries para fazer as requisições e salvar no banco de dados
 for serie in series:
-    url = serie['url']
-    tabela = serie['tabela']
-    descricao = serie['descricao']
+    params = {'formato': 'json'}
+    response = requests.get(serie['url'], params=params)
     
-    # Faz a requisição
-    resposta = requests.get(url, params=parametros)
-    
-    # Conferir se não apresenta erro
-    if resposta.status_code == 200:
-        # Salva a resposta json
-        data = resposta.json()
-
-        # Converte em um Pandas DataFrame e armazena no dicionário
-        dataframes[tabela] = pd.DataFrame(data)
-
-        # Imprime o DataFrame e a descrição para verificação
-        print(f'Tabela {tabela} - {descricao}')
-        print(dataframes[tabela])
+    if response.status_code == 200:
+        data = response.json()
+        df = pd.DataFrame(data)
+        df['descricao'] = serie['descricao']
+        df['unidade'] = serie['unidade']
+        df['periodicidade'] = serie['periodicidade']
+        
+        # Inserir dados no banco de dados
+        df.to_sql(serie['tabela'], engine, if_exists='replace', index=False, schema='dbo')
+        print(f"Dados da série {serie['tabela']} salvos com sucesso no banco de dados.")
+        print("Fim das importações de dados do BACEN.")
     else:
-        print(f'Erro na tabela {tabela}:', resposta.status_code)
+        print(f"Falha ao obter dados da série {serie['tabela']}. Status code: {response.status_code}")
 
