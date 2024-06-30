@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Dados brutos carregados por processos ETL externos"
+    tables:
+      - name: 1: Taxa de Câmbio Dólar
+        description: "Taxa de câmbio - Livre - Dólar Americano (venda)"
+

@@ -1,0 +1,19 @@
+name: dados_economicos
+version: '1.0'
+config-version: 2
+
+profile: dados-economicos
+
+models:
+  dados_economicos:
+    model-paths: ["models/2-staging", "models/3-datamart"]
+    analysis-paths: ["models/analysis"]
+    test-paths: ["models/tests"]
+    seed-paths: ["models/data"]
+    snapshot-paths: ["models/snapshots"]
+
+target-path: target
+clean-targets:
+  - target
+  - dbt_modules
+
