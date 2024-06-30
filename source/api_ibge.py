@@ -44,7 +44,7 @@ username = os.getenv("DB_USERNAME")
 password = os.getenv("DB_PASSWORD")
 
 # Criar a conexão com o banco de dados
-conn_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC Driver 17 for SQL Server"
+conn_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC Driver 18 for SQL Server"
 engine = create_engine(conn_str)
 
 # Loop pelas séries para fazer as requisições e salvar no banco de dados
