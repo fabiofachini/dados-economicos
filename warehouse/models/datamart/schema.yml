@@ -1,9 +1,10 @@
 version: 2
 
 sources:
-  - name: raw
+  - name: dbo
     description: "Dados brutos carregados por processos ETL externos"
     tables:
-      - name: 1: Taxa de Câmbio Dólar
+      - name: 'Taxa_de_Cambio_Dolar'
         description: "Taxa de câmbio - Livre - Dólar Americano (venda)"
+        schema: 'dbo'
 

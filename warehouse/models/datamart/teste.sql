@@ -1,10 +1,7 @@
 -- models/staging/stg_cambio_dolar.sql
 
 with cambio_dolar as (
-    select
-        data,
-        valor
-    from {{ source('raw', 'Taxa_de_Cambio_Dolar') }}
+    select * from {{ source('dbo', 'Taxa_de_Cambio_Dolar') }}
 ),
 
 -- Renamed and transformed data

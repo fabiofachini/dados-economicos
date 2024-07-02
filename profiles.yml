@@ -1,0 +1,13 @@
+dados-economicos:
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: 'ODBC Driver 18 for SQL Server'
+      threads: 1
+      host: "{{ env_var('DB_SERVER') }}"
+      port: 1433
+      user: "{{ env_var('DB_USERNAME') }}"
+      pass: "{{ env_var('DB_PASSWORD') }}"
+      database: "{{ env_var('DB_DATABASE') }}"
+      schema: dbo
