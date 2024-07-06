@@ -2,9 +2,210 @@ version: 2
 
 sources:
   - name: dbo
-    description: "Dados brutos carregados por processos ETL externos"
     tables:
-      - name: 'Taxa_de_Cambio_Dolar'
-        description: "Taxa de câmbio - Livre - Dólar Americano (venda)"
-        schema: 'dbo'
+      - name: NFSP_Governo_Mes
+        description: "4639: NFSP sem desvalorização cambial - Fluxo mensal corrente - Resultado primário - Total - Governo Federal e Banco Central"
 
+      - name: NFSP_Setor_Publico_Mes
+        description: "4649: NFSP sem desvalorização cambial - Fluxo mensal corrente - Resultado primário - Total - Setor público consolidado"
+
+      - name: NFSP_Governo_Ano
+        description: "4782: NFSP sem desvalorização cambial - Fluxo acumulado no ano - Resultado primário - Total - Governo Federal e Banco Central"
+
+      - name: NFSP_Setor_Publico_Ano
+        description: "4792: NFSP sem desvalorização cambial - Fluxo acumulado no ano - Resultado primário - Total - Setor público consolidado"
+
+      - name: NFSP_Governo_12m
+        description: "5068: NFSP sem desvalorização cambial - Fluxo acumulado em 12 meses - Resultado primário - Total - Governo Federal e Banco Central"
+
+      - name: NFSP_Setor_Publico_12m
+        description: "5078: NFSP sem desvalorização cambial - Fluxo acumulado em 12 meses - Resultado primário - Total - Setor público consolidado"
+
+      - name: NFSP_PIB_Governo_Mes
+        description: "5354: NFSP sem desvalorização cambial (% PIB) - Fluxo mensal corrente - Resultado primário - Total - Governo Federal e Banco Central"
+
+      - name: NFSP_PIB_Setor_Publico_Mes
+        description: "5364: NFSP sem desvalorização cambial (% PIB) - Fluxo mensal corrente - Resultado primário - Total - Setor público consolidado"
+
+      - name: NFSP_PIB_Governo_Ano
+        description: "5497: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado no ano - Resultado primário - Total - Governo Federal e Banco Central"
+
+      - name: NFSP_PIB_Setor_Publico_Ano
+        description: "5507: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado no ano - Resultado primário - Total - Setor público consolidado"
+
+      - name: NFSP_PIB_Governo_12m
+        description: "5783: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses - Resultado primário - Total - Governo Federal e Banco Central"
+
+      - name: NFSP_PIB_Setor_Publico_12m
+        description: "5793: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses - Resultado primário - Total - Setor público consolidado"
+
+      - name: Divida_Liquida_PIB_Governo
+        description: "4503: Dívida Líquida do Setor Público (% PIB) - Total - Governo Federal e Banco Central"
+
+      - name: Divida_Liquida_PIB_Setor_Publico
+        description: "4513: Dívida Líquida do Setor Público (% PIB) - Total - Setor público consolidado"
+
+      - name: Taxa_de_Cambio_Euro
+        description: "21619: Taxa de câmbio - Livre - Euro (venda)"
+
+      - name: Taxa_de_Cambio_Libra
+        description: "21623: Taxa de câmbio - Livre - Libra Esterlina (venda)"
+
+      - name: Taxa_de_Cambio_Dolar
+        description: "1: Taxa de câmbio - Livre - Dólar Americano (venda)"
+
+      - name: Selic_Anualizada
+        description: "1178: Taxa de juros - Selic anualizada base 252"
+
+      - name: CDI_Anualizada
+        description: "4389: Taxa de juros - CDI anualizada base 252"
+
+      - name: Selic_Meta
+        description: "432: Taxa de juros - Meta Selic definida pelo Copom"
+
+      - name: IGPM_Mes
+        description: "189: Índice geral de preços do mercado (IGP-M)"
+
+      - name: Meta_Inflacao
+        description: "13521: Meta para a inflação"
+
+      - name: IPCA_ate_2019
+        description: "1419: IPCA - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (de janeiro/2012 até dezembro/2019)"
+
+      - name: IPCA_depois_2019
+        description: "7060: IPCA - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (a partir de janeiro/2020)"
+
+      - name: INPC_ate_2019
+        description: "1100: INPC - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (de janeiro/2012 até dezembro/2019)"
+
+      - name: INPC_depois_2019
+        description: "7061: INPC - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (a partir de janeiro/2020)"
+
+      - name: Carteira_de_Credito
+        description: "20539: Saldo da carteira de crédito - Total"
+
+      - name: Carteira_de_Credito_PJ
+        description: "20540: Saldo da carteira de crédito - Pessoas jurídicas - Total"
+
+      - name: Carteira_de_Credito_PF
+        description: "20541: Saldo da carteira de crédito - Pessoas físicas - Total"
+
+      - name: Concessao_de_Credito
+        description: "20631: Concessões de crédito - Total"
+
+      - name: Concessao_de_Credito_PJ
+        description: "20632: Concessões de crédito - Pessoas jurídicas - Total"
+
+      - name: Concessao_de_Credito_PF
+        description: "20633: Concessões de crédito - Pessoas físicas - Total"
+
+      - name: Endividamento_Familias
+        description: "29037: Endividamento das famílias com o Sistema Financeiro Nacional em relação à renda acumulada dos últimos doze meses (RNDBF)"
+
+      - name: Envidadamento_Familias_s_Habitacional
+        description: "29038: Endividamento das famílias com o Sistema Financeiro Nacional exceto crédito habitacional em relação à renda acumulada dos últimos 12 meses (RNDBF)"
+
+      - name: Confianca_Consumidor
+        description: "4393: Índice de Confiança do Consumidor"
+
+      - name: Confianca_Industrial
+        description: "7341: Índice de Confiança do Empresário Industrial (ICEI) - Geral"
+
+      - name: Confianca_Servicos
+        description: "17660: Sondagem de Serviços - Índice de Confiança de Serviços"
+
+      - name: Energia_Comercial
+        description: "1402: Consumo de energia elétrica - Brasil - Comercial"
+
+      - name: Energia_Residencial
+        description: "1403: Consumo de energia elétrica - Brasil - Residencial"
+
+      - name: Energia_Industrial
+        description: "1404: Consumo de energia elétrica - Brasil - Industrial"
+
+      - name: Energia_Outros
+        description: "1405: Consumo de energia elétrica - Brasil - Outros"
+
+      - name: Energia_Total
+        description: "1406: Consumo de energia elétrica - Brasil - Total"
+
+      - name: PIB
+        description: "1846: PIB Valores a preços correntes"
+        
+      - name: PIB_Variacao_Trimestral
+        description: "5932: PIB Taxa de variação do índice de volume trimestral - Taxa trimestre contra trimestre imediatamente anterior"
+      
+      - name: PIB_Anual
+        description: "6784: Produto Interno Bruto, Produto Interno Bruto per capita Anual"
+      
+      - name: Populacao_Trimestral
+        description: "6022: População - Total - Trimestral"
+      
+      - name: Populacao_Anual
+        description: "6415: População - Total - Anual"
+      
+      - name: Piramide_Etaria
+        description: "6706: População residente, por sexo e grupos de idade - Pirâmide etária"
+      
+      - name: Populacao_Economicamente_Ativa
+        description: "6318: Pessoas de 14 anos ou mais de idade - Total - por condição em relação à força de trabalho e condição de ocupação"
+      
+      - name: Nivel_de_Desocupacao
+        description: "6380: Nível da desocupação, na semana de referência, das pessoas de 14 anos ou mais de idade - Total"
+      
+      - name: Taxa_de_Desocupacao
+        description: "6381: Taxa de desocupação, na semana de referência, das pessoas de 14 anos ou mais de idade - Total"
+      
+      - name: Taxa_de_Subocupacao
+        description: "6785: Taxa de subocupação por insuficiência de horas trabalhadas - Total"
+      
+      - name: Taxa_de_Desalentados
+        description: "6807: Percentual de pessoas desalentadas na população na força de trabalho ou desalentada - Total"
+      
+      - name: Taxa_de_Informalidade
+        description: "8513: Taxa de informalidade das pessoas de 14 anos ou mais de idade, ocupadas na semana de referência - Total"
+      
+      - name: Taxa_de_Part_Forca_de_Trabalho
+        description: "5944: Taxa de participação na força de trabalho, na semana de referência, das pessoas de 14 anos ou mais de idade - Total"
+      
+      - name: Massa_Salarial_Habitualmente
+        description: "6392: Massa de rendimento mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, habitualmente recebido em todos os trabalhos - Total"
+      
+      - name: Massa_Salarial_Efetivamente
+        description: "6393: Massa de rendimento mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, efetivamente recebido em todos os trabalhos - Total"
+      
+      - name: Rendimento_Mensal_Atividade
+        description: "6391: Rendimento médio mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, habitualmente recebido no trabalho principal - Total - por grupamento de atividade no trabalho principal"
+      
+      - name: Rendimento_Mensal_Posicao
+        description: "6389: Rendimento médio mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, habitualmente recebido no trabalho principal - Total - por posição na ocupação e categoria do emprego no trabalho principal"
+      
+      - name: Rendimento_Trabalho_Principal
+        description: "6388: Rendimento médio mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, efetivamente recebido no trabalho principal - Total"
+      
+      - name: Rendimento_Todos_os_Trabalhos
+        description: "6387: Rendimento médio mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, efetivamente recebido em todos os trabalhos - Total"
+      
+      - name: Indice_de_Gini
+        description: "7453: Índice de Gini do rendimento médio mensal real das pessoas de 14 anos ou mais - Índice"
+      
+      - name: Limites_Classe_Social
+        description: "7438: Limites superiores das classes de percentual das pessoas em ordem crescente de rendimento domiciliar per capita, a preços médios do ano - Reais"
+      
+      - name: Populacao_Classe_Social
+        description: "7521: População residente, por classes simples de percentual das pessoas por rendimento domiciliar per capita, a preços médios do ano"
+      
+      - name: Massa_Salarial_por_Classe_Social
+        description: "7527: Distribuição da massa de rendimento mensal real domiciliar per capita, a preços médios do ano, por classes simples de percentual das pessoas em ordem crescente de rendimento domiciliar per capita - %"
+      
+      - name: Rendimento_Classe_Social
+        description: "7531: Rendimento médio mensal real domiciliar per capita, a preços médios do ano, por classes simples de percentual das pessoas em ordem crescente de rendimento domiciliar per capita - Reais"
+      
+      - name: Taxa_de_Analfabetismo
+        description: "7113: Taxa de analfabetismo das pessoas de 15 anos ou mais de idade"
+      
+      - name: Nivel_de_Instrucao
+        description: "7267: Pessoas de 14 anos ou mais de idade por sexo e nível de instrução"
+      
+      - name: Custo_CUB_m2
+        description: "2296: Custo médio m² em moeda corrente - Reais"
