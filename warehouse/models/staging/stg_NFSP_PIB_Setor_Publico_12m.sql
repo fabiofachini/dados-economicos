@@ -7,8 +7,8 @@ with NFSP_PIB_Setor_Publico_12m as (
 -- transformação dos dados
 stg_NFSP_PIB_Setor_Publico_12m as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as NFSP_PIB_Setor_Publico_12m
     from NFSP_PIB_Setor_Publico_12m
 )
 

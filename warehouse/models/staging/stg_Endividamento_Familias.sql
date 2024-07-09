@@ -7,8 +7,8 @@ with Endividamento_Familias as (
 -- transformação dos dados
 stg_Endividamento_Familias as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as Endividamento_Familias
     from Endividamento_Familias
 )
 

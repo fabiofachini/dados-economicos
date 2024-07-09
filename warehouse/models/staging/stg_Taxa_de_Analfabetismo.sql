@@ -7,8 +7,15 @@ with Taxa_de_Analfabetismo as (
 -- transformação dos dados
 stg_Taxa_de_Analfabetismo as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, 
+            [Ano (Código)] + '-01-01') AS Data,
+        TRY_CAST(
+        CASE 
+            WHEN [Valor] = '...' THEN NULL
+            ELSE [Valor]
+        END AS NUMERIC(10,1)) AS Taxa_de_Analfabetismo,
+        Sexo,
+        [Grupo de idade]
     from Taxa_de_Analfabetismo
 )
 

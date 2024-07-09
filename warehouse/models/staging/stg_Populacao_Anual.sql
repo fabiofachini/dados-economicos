@@ -7,8 +7,14 @@ with Populacao_Anual as (
 -- transformação dos dados
 stg_Populacao_Anual as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, 
+            [Ano (Código)] + '-01-01') AS Data,
+        TRY_CAST(
+        CASE 
+            WHEN [Valor] = '...' THEN NULL
+            ELSE [Valor]
+        END AS INT) AS Populacao_Anual,
+        Variável
     from Populacao_Anual
 )
 

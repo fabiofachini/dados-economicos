@@ -7,8 +7,15 @@ with Custo_CUB_m2 as (
 -- transformação dos dados
 stg_Custo_CUB_m2 as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, 
+            SUBSTRING(CAST([Mês (Código)] AS VARCHAR(6)), 1, 4) + '-' + 
+            SUBSTRING(CAST([Mês (Código)] AS VARCHAR(6)), 5, 2) + '-01') AS Data,
+        TRY_CAST(
+        CASE 
+            WHEN [Valor] = '...' THEN NULL
+            ELSE [Valor]
+        END AS NUMERIC(10,2)
+    ) AS Custo_CUB_m2
     from Custo_CUB_m2
 )
 

@@ -28,10 +28,6 @@ series = [
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados', 'tabela': 'Selic_Meta', 'descricao': '432: Taxa de juros - Meta Selic definida pelo Copom', 'unidade':'%', 'periodicidade': 'D'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.189/dados', 'tabela': 'IGPM_Mes', 'descricao': '189: Índice geral de preços do mercado (IGP-M)', 'unidade':'%', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.13521/dados', 'tabela': 'Meta_Inflacao', 'descricao': '13521: Meta para a inflação', 'unidade':'%', 'periodicidade': 'M'},
-    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1419/dados', 'tabela': 'IPCA_ate_2019', 'descricao': '1419: IPCA - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (de janeiro/2012 até dezembro/2019)', 'unidade':'%', 'periodicidade': 'M'},
-    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.7060/dados', 'tabela': 'IPCA_depois_2019', 'descricao': '7060: IPCA - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (a partir de janeiro/2020)', 'unidade':'%', 'periodicidade': 'M'},
-    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1100/dados', 'tabela': 'INPC_ate_2019', 'descricao': '1100: INPC - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (de janeiro/2012 até dezembro/2019)', 'unidade':'%', 'periodicidade': 'M'},
-    {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.7063/dados', 'tabela': 'INPC_depois_2019', 'descricao': '7060: INPC - Variação mensal, acumulada no ano, acumulada em 12 meses e peso mensal, para o índice geral, grupos, subgrupos, itens e subitens de produtos e serviços (a partir de janeiro/2020)', 'unidade':'%', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20539/dados', 'tabela': 'Carteira_de_Credito', 'descricao': '20539: Saldo da carteira de crédito - Total', 'unidade':'R$ Milhões', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20540/dados', 'tabela': 'Carteira_de_Credito_PJ', 'descricao': '20540: Saldo da carteira de crédito - Pessoas jurídicas - Total', 'unidade':'R$ Milhões', 'periodicidade': 'M'},
     {'url': 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.20541/dados', 'tabela': 'Carteira_de_Credito_PF', 'descricao': '20541: Saldo da carteira de crédito - Pessoas físicas - Total', 'unidade':'R$ Milhões', 'periodicidade': 'M'},
@@ -70,9 +66,6 @@ for serie in series:
     if response.status_code == 200:
         data = response.json()
         df = pd.DataFrame(data)
-        df['descricao'] = serie['descricao']
-        df['unidade'] = serie['unidade']
-        df['periodicidade'] = serie['periodicidade']
         
         # Inserir dados no banco de dados
         df.to_sql(serie['tabela'], engine, if_exists='replace', index=False, schema='dbo')

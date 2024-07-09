@@ -7,8 +7,8 @@ with Confianca_Servicos as (
 -- transformação dos dados
 stg_Confianca_Servicos as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as Confianca_Servicos
     from Confianca_Servicos
 )
 

@@ -7,8 +7,15 @@ with Nivel_de_Instrucao as (
 -- transformação dos dados
 stg_Nivel_de_Instrucao as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, 
+            [Ano (Código)] + '-01-01') AS Data,
+        TRY_CAST(
+        CASE 
+            WHEN [Valor] = '...' THEN NULL
+            ELSE [Valor]
+        END AS INT) AS Mil_Pessoas,
+        Sexo,
+        [Nível de instrução] AS Nivel_de_Instrucao
     from Nivel_de_Instrucao
 )
 

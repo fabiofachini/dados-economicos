@@ -7,8 +7,8 @@ with Taxa_de_Cambio_Euro as (
 -- transformação dos dados
 stg_Taxa_de_Cambio_Euro as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,5)) as Taxa_de_Cambio_Euro
     from Taxa_de_Cambio_Euro
 )
 

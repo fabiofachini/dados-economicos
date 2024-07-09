@@ -7,8 +7,8 @@ with NFSP_Setor_Publico_Mes as (
 -- transformação dos dados
 stg_NFSP_Setor_Publico_Mes as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as NFSP_Setor_Publico_Mes
     from NFSP_Setor_Publico_Mes
 )
 

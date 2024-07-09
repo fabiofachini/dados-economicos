@@ -7,8 +7,8 @@ with NFSP_Governo_12m as (
 -- transformação dos dados
 stg_NFSP_Governo_12m as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as NFSP_Governo_12m
     from NFSP_Governo_12m
 )
 

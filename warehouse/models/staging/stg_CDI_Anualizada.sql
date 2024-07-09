@@ -7,8 +7,8 @@ with CDI_Anualizada as (
 -- transformação dos dados
 stg_CDI_Anualizada as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as CDI_Anualizada
     from CDI_Anualizada
 )
 

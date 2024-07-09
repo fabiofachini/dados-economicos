@@ -1,16 +1,16 @@
 -- models/staging/stg_NSFP_Governo_Mes.sql
 
-with NSFP_Governo_Mes as (
-    select * from {{ source('dbo', 'NSFP_Governo_Mes') }}
+with NFSP_Governo_Mes as (
+    select * from {{ source('dbo', 'NFSP_Governo_Mes') }}
 ),
 
 -- transformação dos dados
-stg_NSFP_Governo_Mes as (
+stg_NFSP_Governo_Mes as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
-    from NSFP_Governo_Mes
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as NFSP_Governo_Mes
+    from NFSP_Governo_Mes
 )
 
 -- retorno dos dados transformados
-select * from stg_NSFP_Governo_Mes
+select * from stg_NFSP_Governo_Mes

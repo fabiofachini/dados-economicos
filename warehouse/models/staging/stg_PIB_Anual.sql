@@ -7,8 +7,14 @@ with PIB_Anual as (
 -- transformação dos dados
 stg_PIB_Anual as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, 
+            [Ano (Código)] + '-01-01') AS Data,
+        TRY_CAST(
+        CASE 
+            WHEN [Valor] = '...' THEN NULL
+            ELSE [Valor]
+        END AS NUMERIC(10,2)) AS PIB_Anual,
+        Variável
     from PIB_Anual
 )
 

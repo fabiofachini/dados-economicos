@@ -7,8 +7,8 @@ with Concessao_de_Credito as (
 -- transformação dos dados
 stg_Concessao_de_Credito as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as int) as Concessao_de_Credito
     from Concessao_de_Credito
 )
 

@@ -7,8 +7,8 @@ with Divida_Liquida_PIB_Setor_Publico as (
 -- transformação dos dados
 stg_Divida_Liquida_PIB_Setor_Publico as (
     select
-        cast(data as date) as date,
-        cast(valor as numeric) as value
+        CONVERT(DATE, data, 103) AS Data,
+        cast(valor as numeric(10,2)) as Divida_Liquida_PIB_Setor_Publico
     from Divida_Liquida_PIB_Setor_Publico
 )
 
