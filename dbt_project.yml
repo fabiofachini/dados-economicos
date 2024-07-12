@@ -2,7 +2,7 @@ name: dados_economicos
 version: '1.0'
 config-version: 2
 
-profile: ./profiles.yml
+profile: dados-economicos
 
 model-paths: ["warehouse/models/staging", "warehouse/models/datamart"]
 analysis-paths: ["warehouse/models/analysis"]

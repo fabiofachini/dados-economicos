@@ -45,6 +45,9 @@ def executar_scripts():
         bacen_script = os.path.join(source_path, 'api_bacen.py')
         subprocess.run(['python3', bacen_script])
 
+        # Define a variável de ambiente para o profiles.yml
+        os.environ['DBT_PROFILES_DIR'] = os.getenv('DBT_PROFILES_DIR', '.')
+
         # Executa dbt run
         print("Executando dbt run")
         subprocess.run(['dbt', 'run'])
