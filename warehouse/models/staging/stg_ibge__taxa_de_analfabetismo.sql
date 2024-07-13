@@ -14,8 +14,7 @@ stg_ibge__taxa_de_analfabetismo as (
             WHEN [Valor] = '...' THEN NULL
             ELSE [Valor]
         END AS NUMERIC(10,1)) AS Taxa_de_Analfabetismo,
-        Sexo,
-        [Grupo de idade]
+        Sexo
     from taxa_de_analfabetismo
 )
 
