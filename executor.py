@@ -62,3 +62,5 @@ if __name__ == "__main__":
     
     # Executa os scripts de ETL
     executar_scripts()
+
+    print("Extração, carregamento e transformação dos dados do BACEN e do IBGE finalizados.")

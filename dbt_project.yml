@@ -4,7 +4,7 @@ config-version: 2
 
 profile: dados-economicos
 
-model-paths: ["warehouse/models/staging", "warehouse/models/datamart"]
+model-paths: ["warehouse/models/staging", "warehouse/models/intermediate", "warehouse/models/datamart"]
 analysis-paths: ["warehouse/models/analysis"]
 test-paths: ["warehouse/models/tests"]
 seed-paths: ["warehouse/models/data"]

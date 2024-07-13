@@ -62,17 +62,29 @@ engine = create_engine(conn_str)
 # Loop pelas séries para fazer as requisições e salvar no banco de dados
 for serie in series:
     params = {'formato': 'json'}
-    response = requests.get(serie['url'], params=params)
+    sucesso = False
+    tentativas = 0
+    max_tentativas = 3
     
-    if response.status_code == 200:
-        data = response.json()
-        df = pd.DataFrame(data)
+    while not sucesso and tentativas < max_tentativas:
+        try:
+            response = requests.get(serie['url'], params=params)
+            response.raise_for_status()  # Lança a exceção
+            
+            data = response.json()
+            df = pd.DataFrame(data)
+            
+            # Inserir dados no banco de dados
+            df.to_sql(serie['tabela'], engine, if_exists='replace', index=False, schema='dbo')
+            print(f"Dados da série {serie['tabela']} salvos com sucesso no banco de dados.")
+            
+            sucesso = True
+        except requests.exceptions.RequestException as e:
+            print(f"Erro ao fazer a requisição para a série {serie['tabela']}: {e}")
+            tentativas += 1
+            sleep(5)
+    
+    if not sucesso:
+        print(f"Falha ao obter dados da série {serie['tabela']} após {max_tentativas} tentativas.")
         
-        # Inserir dados no banco de dados
-        df.to_sql(serie['tabela'], engine, if_exists='replace', index=False, schema='dbo')
-        print(f"Dados da série {serie['tabela']} salvos com sucesso no banco de dados.")
-        
-        sleep(2)
-    else:
-        print(f"Falha ao obter dados da série {serie['tabela']}. Status code: {response.status_code}")
 print("Fim das importações de dados do BACEN.")
