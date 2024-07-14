@@ -1,11 +1,11 @@
--- models/staging/stg_ibge__populacao_trimestral.sql
+-- models/staging/stg_ibge__populacao_mensal.sql
 
 with populacao_trimestral as (
     select * from {{ source('dbo', 'populacao_trimestral') }}
 ),
 
 -- transformação dos dados
-stg_ibge__populacao_trimestral as (
+stg_ibge__populacao_mensal as (
     select
         CONVERT(DATE, 
             SUBSTRING(CAST([Trimestre Móvel (Código)] AS VARCHAR(6)), 1, 4) + '-' + 
@@ -15,9 +15,9 @@ stg_ibge__populacao_trimestral as (
             WHEN [Valor] = '...' THEN NULL
             ELSE [Valor]
         END AS INT
-    ) AS Populacao_Trimestral
+    ) AS Populacao
     from populacao_trimestral
 )
 
 -- retorno dos dados transformados
-select * from stg_ibge__populacao_trimestral
+select * from stg_ibge__populacao_mensal

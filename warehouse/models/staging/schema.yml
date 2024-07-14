@@ -207,5 +207,3 @@ sources:
       - name: nivel_de_instrucao
         description: "7267: Pessoas de 14 anos ou mais de idade por sexo e nível de instrução"
       
-      - name: custo_cub_m2
-        description: "2296: Custo médio m² em moeda corrente - Reais"
