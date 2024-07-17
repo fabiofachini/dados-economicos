@@ -64,7 +64,7 @@ for serie in series:
     params = {'formato': 'json'}
     sucesso = False
     tentativas = 0
-    max_tentativas = 3
+    max_tentativas = 5
     
     while not sucesso and tentativas < max_tentativas:
         try:
@@ -82,7 +82,7 @@ for serie in series:
         except requests.exceptions.RequestException as e:
             print(f"Erro ao fazer a requisição para a série {serie['tabela']}: {e}")
             tentativas += 1
-            sleep(5)
+            sleep(10)
     
     if not sucesso:
         print(f"Falha ao obter dados da série {serie['tabela']} após {max_tentativas} tentativas.")

@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def connect_to_db():
-    retries = 3
-    delay = 10  # segundos
+    retries = 5
+    delay = 20  # segundos
     for i in range(retries):
         try:
             connection = pyodbc.connect(
