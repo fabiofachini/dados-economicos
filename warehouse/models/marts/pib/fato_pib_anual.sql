@@ -1,10 +1,10 @@
 -- models/marts/fato_pib_anual.sql
 
-with int_pib_anual_joined as (
-    select * from {{ ref('int_pib_anual_joined') }}
+with stg_ibge__pib_anual as (
+    select * from {{ ref('stg_ibge__pib_anual') }}
 )
 
 -- transformação dos dados
 
 -- retorno dos dados
-select * from int_pib_anual_joined
+select * from stg_ibge__pib_anual

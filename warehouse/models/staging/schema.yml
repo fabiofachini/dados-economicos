@@ -135,8 +135,11 @@ sources:
       - name: pib_variacao_trimestral
         description: "5932: PIB Taxa de variação do índice de volume trimestral - Taxa trimestre contra trimestre imediatamente anterior"
       
+      - name: pib_anual_pc
+        description: "6784: Produto Interno Bruto per capita Anual"
+            
       - name: pib_anual
-        description: "6784: Produto Interno Bruto, Produto Interno Bruto per capita Anual"
+        description: "6784: Produto Interno Bruto"
       
       - name: populacao_trimestral
         description: "6022: População - Total - Trimestral"

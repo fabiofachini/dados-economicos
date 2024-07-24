@@ -7,4 +7,4 @@ with int_rendimento_joined as (
 -- transformação dos dados
 
 -- retorno dos dados
-select * from int_rendimento_joined
+select Data, Massa_Salarial_Efetivamente from int_rendimento_joined

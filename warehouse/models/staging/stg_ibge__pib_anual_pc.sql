@@ -1,11 +1,11 @@
 -- models/staging/stg_ibge__pib_anual.sql
 
-with pib_anual as (
-    select * from {{ source('dbo', 'pib_anual') }}
+with pib_anual_pc as (
+    select * from {{ source('dbo', 'pib_anual_pc') }}
 ),
 
 -- transformação dos dados
-stg_ibge__pib_anual as (
+stg_ibge__pib_anual_pc as (
     select
         CONVERT(DATE, 
             [Ano (Código)] + '-01-01') AS Data,
@@ -15,8 +15,8 @@ stg_ibge__pib_anual as (
             ELSE [Valor]
         END AS NUMERIC(10,2)) AS PIB_Anual
 
-    from pib_anual
+    from pib_anual_pc
 )
 
 -- retorno dos dados transformados
-select * from stg_ibge__pib_anual
+select * from stg_ibge__pib_anual_pc

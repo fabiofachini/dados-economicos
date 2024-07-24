@@ -7,4 +7,4 @@ with int_juros_joined as (
 -- transformação dos dados
 
 -- retorno dos dados
-select * from int_juros_joined
+select * from int_juros_joined where Data >= '2000-01-01'

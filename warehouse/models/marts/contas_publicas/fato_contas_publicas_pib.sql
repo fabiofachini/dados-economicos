@@ -7,4 +7,4 @@ with int_contas_publicas_joined as (
 -- transformação dos dados
 
 -- retorno dos dados
-select Data, NFSP_Setor_Publico_Ano, NFSP_Setor_Publico_Mes from int_contas_publicas_joined
+select Data, NFSP_PIB_Setor_Publico_Ano, NFSP_PIB_Setor_Publico_Mes from int_contas_publicas_joined

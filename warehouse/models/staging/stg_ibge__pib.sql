@@ -14,12 +14,7 @@ stg_ibge__pib AS (
         WHEN SUBSTRING(CAST([Trimestre (Código)] AS VARCHAR(6)), 5, 2) = '04' THEN CONVERT(DATE, LEFT(CAST([Trimestre (Código)] AS VARCHAR(6)), 4) + '-12-01')
         ELSE NULL
     END AS Data,
-    TRY_CAST(
-        CASE 
-            WHEN [Valor] = '...' THEN NULL
-            ELSE [Valor]
-        END AS INT
-    ) AS PIB
+    CAST(Valor AS NUMERIC(10,2)) AS PIB
     FROM pib)
 
 -- retorno dos dados transformados
