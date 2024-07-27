@@ -13,8 +13,7 @@ stg_ibge__piramide_etaria as (
         CASE 
             WHEN [Valor] = '...' THEN NULL
             ELSE [Valor]
-        END AS INT) AS Piramide_Etaria,
-        Sexo,
+        END AS NUMERIC(10,2)) AS piramide_etaria,
         [Grupo de idade]
     from piramide_etaria
 )

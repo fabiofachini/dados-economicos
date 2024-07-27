@@ -174,7 +174,7 @@ sources:
       - name: massa_salarial_habitualmente
         description: "6392: Massa de rendimento mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, habitualmente recebido em todos os trabalhos - Total"
       
-      - name: massa_salarial_efetivamente
+      - name: massa_salarial_coeficiente
         description: "6393: Massa de rendimento mensal real das pessoas de 14 anos ou mais de idade ocupadas na semana de referência com rendimento de trabalho, efetivamente recebido em todos os trabalhos - Total"
       
       - name: rendimento_mensal_atividade
