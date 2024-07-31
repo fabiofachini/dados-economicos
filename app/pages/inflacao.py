@@ -50,7 +50,8 @@ def get_data(table_name):
 @st.cache_data(ttl=85000)
 def carregar_dados():
     tabelas = [
-        "fato_cambio"]
+        "int_inflacao_joined",
+        "fato_meta_inflacao"]
     
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
@@ -60,49 +61,134 @@ def main():
     dados = carregar_dados()
 
 def show_cambio_page():
-    df_cambio = dados['fato_cambio']
-    df_cambio['Data'] = pd.to_datetime(df_cambio['Data'])
-    df_cambio = df_cambio.sort_values(by='Data')
-    
+    df_inflacao = dados['int_inflacao_joined']
+    df_inflacao_meta = dados['fato_meta_inflacao']
+    df_inflacao['Data'] = pd.to_datetime(df_inflacao['Data'])
 
     fig = go.Figure()
 
+    # Adicionando a primeira série de barras para IPCA_Mes
     fig.add_trace(go.Scatter(
-        x=df_cambio['Data'],
-        y=df_cambio['Taxa_de_Cambio_Dolar'],
-        name='Dólar',
-        line=dict(color='red'),
-        text=df_cambio['Taxa_de_Cambio_Dolar'],
+        x=df_inflacao['Data'],
+        y=df_inflacao['IPCA_Mes'],
+        name='IPCA Mensal',
+        line=dict(color='#1f77b4'),
+        text=df_inflacao['IPCA_Mes'],
+        textposition='top center'
+    ))
+
+    # Adicionando a segunda série de barras para IPCA_Ano
+    fig.add_trace(go.Scatter(
+        x=df_inflacao['Data'],
+        y=df_inflacao['IPCA_Ano'],
+        name='IPCA Anual',
+        line=dict(color='#ff7f0e'),
+        text=df_inflacao['IPCA_Ano'],
+        textposition='top center'
+    ))
+
+    # Adicionando a terceira série de barras para IPCA_12M
+    fig.add_trace(go.Scatter(
+        x=df_inflacao['Data'],
+        y=df_inflacao['IPCA_12M'],
+        name='IPCA 12 Meses',
+        line=dict(color='#2ca02c'),
+        text=df_inflacao['IPCA_12M'],
         textposition='top center'
     ))
 
     fig.add_trace(go.Scatter(
-        x=df_cambio['Data'],
-        y=df_cambio['Taxa_de_Cambio_Euro'],
-        name='Euro',
-        line=dict(color='blue'),
-        text=df_cambio['Taxa_de_Cambio_Euro'],
-        textposition='top center'
-    ))
-
-    fig.add_trace(go.Scatter(
-        x=df_cambio['Data'],
-        y=df_cambio['Taxa_de_Cambio_Libra'],
-        name='Libra',
-        line=dict(color='green'),
-        text=df_cambio['Taxa_de_Cambio_Libra'],
+        x=df_inflacao_meta['Data'],
+        y=df_inflacao_meta['Meta_Inflacao'],
+        name='Meta Inflação',
+        line=dict(color='black'),
+        text=df_inflacao_meta['Meta_Inflacao'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Taxa de Câmbio',
+        title='IPCA: Variação %',
         xaxis_title='Data',
-        yaxis_title='Taxa de Câmbio (R$)',
+        yaxis_title='Variação (%)',
+        barmode='group',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+##########
+
+    df_inflacao_inpc = dados['int_inflacao_joined']
+    df_inflacao_inpc['Data'] = pd.to_datetime(df_inflacao_inpc['Data'])
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=df_inflacao_inpc['Data'],
+        y=df_inflacao_inpc['INPC_Mes'],
+        name='INPC Mensal',
+        line=dict(color='#1f77b4'),
+        text=df_inflacao_inpc['INPC_Mes'],
+        textposition='top center'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=df_inflacao_inpc['Data'],
+        y=df_inflacao_inpc['INPC_Ano'],
+        name='INPC Anual',
+        line=dict(color='#ff7f0e'),
+        text=df_inflacao_inpc['INPC_Ano'],
+        textposition='top center'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=df_inflacao_inpc['Data'],
+        y=df_inflacao_inpc['INPC_12M'],
+        name='INPC 12 Meses',
+        line=dict(color='#2ca02c'),
+        text=df_inflacao_inpc['INPC_12M'],
+        textposition='top center'
+    ))
+
+    fig.update_layout(
+        title='INPC: Variação %',
+        xaxis_title='Data',
+        yaxis_title='Variação (%)',
+        barmode='group',
+        legend_title='Categoria',
+        plot_bgcolor='white'
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+##########
+
+    df_inflacao_igpm = dados['int_inflacao_joined']
+    df_inflacao_igpm['Data'] = pd.to_datetime(df_inflacao_igpm['Data'])
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=df_inflacao_igpm['Data'],
+        y=df_inflacao_igpm['IGPM_Mes'],
+        name='IGPM Mensal',
+        line=dict(color='#1f77b4'),
+        text=df_inflacao_igpm['IGPM_Mes'],
+        textposition='top center'
+    ))
+
+    fig.update_layout(
+        title='IGPM: Variação %',
+        xaxis_title='Data',
+        yaxis_title='Variação (%)',
+        barmode='group',
+        legend_title='Categoria',
+        plot_bgcolor='white'
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
 
 if __name__ == "__main__":
     main()

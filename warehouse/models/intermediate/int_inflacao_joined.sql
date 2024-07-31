@@ -31,4 +31,4 @@ int_inflacao_joined as (
 )
 
 -- retorno dos dados
-select * from int_inflacao_joined
+select * from int_inflacao_joined where Data >= '2012-01-01'

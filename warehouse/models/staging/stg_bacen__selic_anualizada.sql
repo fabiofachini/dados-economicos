@@ -13,4 +13,4 @@ stg_bacen__selic_anualizada as (
 )
 
 -- retorno dos dados transformados
-select * from stg_bacen__selic_anualizada
+select * from stg_bacen__selic_anualizada where Data >= '2000-01-01'

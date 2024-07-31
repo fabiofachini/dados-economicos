@@ -76,7 +76,7 @@ def show_juros_page():
     ))
 
     fig.update_layout(
-        title='Taxas de Juros',
+        title='Taxas Selic: Anualizada',
         xaxis_title='Ano',
         yaxis_title='Taxa (%)',
         legend_title='Categoria',

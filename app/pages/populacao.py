@@ -50,7 +50,8 @@ def get_data(table_name):
 @st.cache_data(ttl=85000)
 def carregar_dados():
     tabelas = [
-        "fato_populacao_anual"]
+        "fato_populacao_anual",
+        "fato_piramide_etaria"]
     
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
@@ -68,16 +69,39 @@ def show_pop_page():
     fig.add_trace(go.Bar(
         x=df_populacao_anual['Data'],
         y=df_populacao_anual['Populacao_Anual'],
-        name='População Anual',
-        marker_color='blue',
+        marker_color='#262730',
         text=df_populacao_anual['Populacao_Anual'],
         textposition='auto'
     ))
 
     fig.update_layout(
-        title='Populacao_Anual',
+        title='População: Anual',
         xaxis_title='Ano',
-        yaxis_title='Populacao_Anual',
+        yaxis_title='População',
+        legend_title='Categoria',
+        plot_bgcolor='white'
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+##########
+
+    df_piramide_etaria = dados['fato_piramide_etaria']
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=df_piramide_etaria['Grupo de idade'],
+        y=df_piramide_etaria['piramide_etaria'],
+        marker_color='#262730',
+        text=df_piramide_etaria['piramide_etaria'],
+        textposition='auto'
+    ))
+
+    fig.update_layout(
+        title='Pirâmide Etária',
+        xaxis_title='Idade',
+        yaxis_title='Percentual da População (%)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )

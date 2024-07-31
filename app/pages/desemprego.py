@@ -96,7 +96,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Part_Forca_de_Trabalho'],
-        name='Taxa de Participação da Força de Trabalho',
+        name='Taxa de Part. Força de Trabalho',
         line=dict(color='orange'),
         text=df_desemprego['Taxa_de_Part_Forca_de_Trabalho'],
         textposition='top center'
@@ -131,7 +131,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Forca_Trabalho'],
-        name='Forca_Trabalho',
+        name='Força de Trabalho',
         line=dict(color='blue'),
         text=df_forca_trab['Forca_Trabalho'],
         textposition='top center'
@@ -140,7 +140,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Forca_Trabalho_Ocupada'],
-        name='Forca_Trabalho_Ocupada',
+        name='Força de Trabalho Ocupada',
         line=dict(color='green'),
         text=df_forca_trab['Forca_Trabalho_Ocupada'],
         textposition='top center'
@@ -149,7 +149,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Forca_Trabalho_Desocupada'],
-        name='Forca_Trabalho_Desocupada',
+        name='Força Trabalho Desocupada',
         line=dict(color='purple'),
         text=df_forca_trab['Forca_Trabalho_Desocupada'],
         textposition='top center'
@@ -158,7 +158,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Fora_Forca_Trabalho'],
-        name='Fora_Forca_Trabalho',
+        name='Fora Força Trabalho',
         line=dict(color='orange'),
         text=df_forca_trab['Fora_Forca_Trabalho'],
         textposition='top center'
@@ -167,7 +167,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Forca_Trabalho_Total'],
-        name='Forca_Trabalho_Total',
+        name='Força Trabalho',
         line=dict(color='brown'),
         text=df_forca_trab['Forca_Trabalho_Total'],
         textposition='top center'
@@ -176,8 +176,8 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['População_Total'],
-        name='População_Total',
-        line=dict(color='brown'),
+        name='População',
+        line=dict(color='black'),
         text=df_forca_trab['População_Total'],
         textposition='top center'
     ))
@@ -186,7 +186,7 @@ def show_desemprego_page():
     fig.update_layout(
         title='Força de Trabalho',
         xaxis_title='Data',
-        yaxis_title='Taxa (%)',
+        yaxis_title='População',
         legend_title='Categoria',
         plot_bgcolor='white'
     )

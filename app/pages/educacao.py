@@ -70,7 +70,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_instrucao['Data'],
         y=df_instrucao['Sem Instrução'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Sem Instrução',
         line=dict(color='pink'),
         text=df_instrucao['Sem Instrução'],
@@ -80,7 +80,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_instrucao['Data'],
         y=df_instrucao['Fundamental'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Fundamental',
         line=dict(color='blue'),
         text=df_instrucao['Fundamental'],
@@ -90,7 +90,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_instrucao['Data'],
         y=df_instrucao['Médio'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Médio',
         line=dict(color='green'),
         text=df_instrucao['Médio'],
@@ -100,9 +100,9 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_instrucao['Data'],
         y=df_instrucao['Superior'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Superior',
-        line=dict(color='green'),
+        line=dict(color='red'),
         text=df_instrucao['Superior'],
         textposition='top center'
     ))    
@@ -126,7 +126,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_analfabetismo['Data'],
         y=df_analfabetismo['Taxa_de_Analfabetismo_Mulheres'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Mulheres',
         line=dict(color='pink'),
         text=df_analfabetismo['Taxa_de_Analfabetismo_Mulheres'],
@@ -136,7 +136,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_analfabetismo['Data'],
         y=df_analfabetismo['Taxa_de_Analfabetismo_Homens'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Homens',
         line=dict(color='blue'),
         text=df_analfabetismo['Taxa_de_Analfabetismo_Homens'],
@@ -146,7 +146,7 @@ def show_educacao_page():
     fig.add_trace(go.Scatter(
         x=df_analfabetismo['Data'],
         y=df_analfabetismo['Taxa_de_Analfabetismo_Total'],
-        mode='lines+markers+text',
+        mode='lines+markers',
         name='Total',
         line=dict(color='green'),
         text=df_analfabetismo['Taxa_de_Analfabetismo_Total'],

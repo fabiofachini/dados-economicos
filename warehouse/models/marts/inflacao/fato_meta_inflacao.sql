@@ -7,4 +7,4 @@ with stg_bacen__meta_inflacao as (
 -- transformação dos dados
 
 -- retorno dos dados
-select * from stg_bacen__meta_inflacao
+select * from stg_bacen__meta_inflacao where Data >= '2012-01-01'

@@ -27,7 +27,7 @@ stg_bacen__concessao_de_credito as (
 -- transformação dos dados
 int_credito_joined as (
     select 
-        cc.Data as Data_cc,
+        cc.Data as Data,
         cc.Carteira_de_Credito,       
         pf.Carteira_de_Credito_PF,
         pj.Carteira_de_Credito_PJ,
@@ -45,4 +45,4 @@ int_credito_joined as (
 )
 
 -- retorno dos dados
-select * from int_credito_joined
+select * from int_credito_joined where Data >= '2008-01-01'
