@@ -9,4 +9,4 @@ requests==2.32.3
 SQLAlchemy==2.0.31
 st-pages==0.5.0
 streamlit==1.36.0
-pymlsql==2.3.0
+pymssql==2.3.0
