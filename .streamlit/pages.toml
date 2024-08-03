@@ -1,7 +1,7 @@
 [[pages]]
 path = "main.py"
 name = "Inicial"
-icon = "📊"
+icon = "🏠"
 
 [[pages]]
 path = "pages/pib.py"
