@@ -9,37 +9,43 @@ st.set_page_config(
 )
 
 show_pages(
-    [   Page("main.py", "Principal", "📚"),
-        Page("pages/pib.py", "PIB", "📈"),
+    [   Page("main.py", "Principal", "🏠"),
+        Page("pages/pib.py", "PIB", "📊"),
         Page("pages/populacao.py", "População", "👥"),
         Page("pages/desemprego.py", "Desemprego", "📉"),
-        Page("pages/desigualdade.py", "Desigualdade", "💰"),
+        Page("pages/desigualdade.py", "Desigualdade", "⚖️"),
         Page("pages/renda.py", "Renda", "💰"),
-        Page("pages/inflacao.py", "Inflação", "📈"),
-        Page("pages/juros.py", "Juros", "💲"),
-        Page("pages/credito.py", "Crédito", "💲"),
+        Page("pages/inflacao.py", "Inflação", "💸"),
+        Page("pages/juros.py", "Juros", "📈"),
+        Page("pages/credito.py", "Crédito", "💳"),
         Page("pages/cambio.py", "Câmbio", "💱"),
         Page("pages/educacao.py", "Educação", "📚"),
-        Page("pages/confianca.py", "Confiança", "📊"),
+        Page("pages/confianca.py", "Confiança", "👍"),
         Page("pages/energia.py", "Energia", "⚡")
     ]
 )
 
 # Título para a página principal
-st.title("Sobre nós")
-st.write("Bem-vindo à página inicial do projeto de Dados Econômicos.")
+st.title("Dados da Economia Brasileira")
+# Descrição Inicial
+st.write("""
+Bem-vindo ao projeto de engenharia e análise de Dados Econômicos da Economia Brasileira.
+Este projeto tem como objetivo fornecer informações atualizadas sobre a economia do Brasil
+através de dados coletados de fontes confiáveis, como IBGE e BACEN.
+Os dados são processados e disponibilizados diariamente às 09h.
+""")
+st.info("Acesse o código no repositório [Github](https://github.com/fabiofachini/dados-economicos)")
 
-col1, col2, col3, col4, col5 = st.columns(5)
-col1.metric("Temperature", "70 °F", "1.2 °F")
-col2.metric("Wind", "9 mph", "-8%")
-col3.metric("Humidity", "86%", "4%")
-col4.metric("Wind", "9 mph", "-8%")
-col5.metric("Humidity", "86%", "4%")
+st.markdown("### 🏛️ Diagrama da Arquitetura")
 
-st.markdown("### 👨‍🔧 Data Engineering Zoomcamp by [DataTalksClub](https://datatalks.club/)")
-
-st.image("https://pbs.twimg.com/media/FmmYA2YWYAApPRB.png")
-
-st.info("Original Course Repository on [Github](https://github.com/DataTalksClub/data-engineering-zoomcamp)")
+st.image("img.gif")
 
 st.markdown("---")
+
+# Créditos dos Desenvolvedores
+st.markdown("### 👥 Desenvolvido por:")
+st.write("""
+- 👨‍💻 [Fábio Fachini](https://www.linkedin.com/in/fabio-fachini/)
+- 👨‍💼 [Felipe Sens Bonetto](https://www.linkedin.com/in/felipe-sens-bonetto-128235144/)
+- 👨‍🔧 [Julio Bonckewitz](https://www.linkedin.com/in/bonckewitz/)
+""")

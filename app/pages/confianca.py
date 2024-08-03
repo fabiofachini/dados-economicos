@@ -69,7 +69,7 @@ def show_confianca_page():
     fig.add_trace(go.Scatter(
         x=df_confianca['Data'],
         y=df_confianca['Confianca_Industrial'],
-        name='Confiança Industrial',
+        name='Confiança Industrial (CNI)',
         line=dict(color='blue'),
         text=df_confianca['Confianca_Industrial'],
         textposition='top center'
@@ -78,7 +78,7 @@ def show_confianca_page():
     fig.add_trace(go.Scatter(
         x=df_confianca['Data'],
         y=df_confianca['Confianca_Consumidor'],
-        name='Confiança do Consumidor',
+        name='Confiança Consumidor (Fecomércio)',
         line=dict(color='green'),
         text=df_confianca['Confianca_Consumidor'],
         textposition='top center'
@@ -87,14 +87,14 @@ def show_confianca_page():
     fig.add_trace(go.Scatter(
         x=df_confianca['Data'],
         y=df_confianca['Confianca_Servicos'],
-        name='Confiança em Serviços',
+        name='Confiança Serviços (FGV)',
         line=dict(color='red'),
         text=df_confianca['Confianca_Servicos'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Índices de Confiança',
+        title='Índice de Confiança da Indústria, Serviços e Consumidor - Fonte: BACEN',
         xaxis_title='Data',
         yaxis_title='Índice',
         legend_title='Categoria',

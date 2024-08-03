@@ -50,10 +50,8 @@ def get_data(table_name):
 @st.cache_data(ttl=85000)
 def carregar_dados():
     tabelas = [
-        "stg_ibge__limites_classe_social",
         "fato_rendimento_atividade",
         "fato_rendimento_posicao",
-        "fato_gini",
         "fato_endividamento",
         "stg_ibge__rendimento_todos_os_trabalhos",
         "stg_ibge__massa_salarial_habitualmente"]
@@ -65,30 +63,10 @@ def main():
     global dados
     dados = carregar_dados()
 
-def show_desigualdade_page():
-    df_limite_classe_social = dados['stg_ibge__limites_classe_social']
-
-    fig = go.Figure()
-
-    fig.add_trace(go.Bar(
-        x=df_limite_classe_social['Classes_Sociais_Percentil'],
-        y=df_limite_classe_social['Limites_Classe_Social'],
-        marker_color='#262730',
-        text=df_limite_classe_social['Limites_Classe_Social'],
-        textposition='auto'
-    ))
-
-    fig.update_layout(
-        title='Limites das Classes Sociais: Percentil',
-        xaxis_title='Classes Sociais',
-        yaxis_title='Renda R$',
-        legend_title='Categoria',
-        plot_bgcolor='white'
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
+def show_renda_page():
 
 #########
+
     # Supondo que 'dados' é um dicionário com DataFrames, ajuste conforme necessário
     df_rendimento_atividade = dados['fato_rendimento_atividade']
     
@@ -122,10 +100,10 @@ def show_desigualdade_page():
         ))
 
     fig.update_layout(
-        title='Rendimento Real por Atividade',
+        title='Rendimento médio mensal real habitualmente recebido por atividade principal - Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='Rendimento (R$)',
-        legend_title='Categoria',
+        legend_title='Atividade',
         plot_bgcolor='white'
     )
     
@@ -160,7 +138,7 @@ def show_desigualdade_page():
         ))
 
     fig.update_layout(
-        title='Rendimento Real por Posição',
+        title='Rendimento médio mensal real habitualmente recebido por categoria de emprego- Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='Rendimento (R$)',
         legend_title='Categoria',
@@ -187,9 +165,9 @@ def show_desigualdade_page():
     ))
 
     fig.update_layout(
-        title='Rendimento Mensal Todos os Trabalhos',
+        title='Rendimento médio mensal real efetivamente recebido de todos os trabalhos - Fonte: IBGE',
         xaxis_title='Data',
-        yaxis_title='Rendimento R$',
+        yaxis_title='Rendimento (R$)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
@@ -207,48 +185,21 @@ def show_desigualdade_page():
         x=df_massa['Data'],
         y=df_massa['Massa_Salarial_Habitualmente'],
         name='Massa Salarial em Milhões de Reais',
-        line=dict(color='blue'),
+        line=dict(color='red'),
         text=df_massa['Massa_Salarial_Habitualmente'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Massa Salarial em Milhões de Reais',
+        title='Massa de rendimento mensal real habitualmente recebido em todos os trabalhos - Fonte: IBGE',
         xaxis_title='Data',
-        yaxis_title='Rendimento R$',
+        yaxis_title='Rendimento (R$)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
 
     st.plotly_chart(fig, use_container_width=True)
 ##############
-
-    df_gini = dados['fato_gini']
-    df_gini['Data'] = pd.to_datetime(df_gini['Data'])
-    df_gini = df_gini.sort_values(by='Data')
-
-    fig = go.Figure()
-
-    fig.add_trace(go.Scatter(
-        x=df_gini['Data'],
-        y=df_gini['Indice_de_Gini'],
-        name='Índice de Gini',
-        line=dict(color='#262730'),
-        text=df_gini['Indice_de_Gini'],
-        textposition='top center'
-    ))
-
-    fig.update_layout(
-        title='Índice de Gini',
-        xaxis_title='Ano',
-        yaxis_title='Índice',
-        legend_title='Categoria',
-        plot_bgcolor='white'
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-##########
 
     df_endividamento_f = dados['fato_endividamento']
     df_endividamento_f['Data'] = pd.to_datetime(df_endividamento_f['Data'])
@@ -268,14 +219,14 @@ def show_desigualdade_page():
     fig.add_trace(go.Scatter(
         x=df_endividamento_f['Data'],
         y=df_endividamento_f['Endividamento_Familias_S_Habitacional'],
-        name='Endividamento Sem Habitacional',
+        name='Endividamento sem habitação',
         line=dict(color='green'),
         text=df_endividamento_f['Endividamento_Familias_S_Habitacional'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Endividamento das Famílias',
+        title='Endividamento das famílias com o Sistema Financeiro Nacional - Fonte: BACEN',
         xaxis_title='Data',
         yaxis_title='Taxa (%)',
         legend_title='Categoria',
@@ -286,4 +237,4 @@ def show_desigualdade_page():
     
 if __name__ == "__main__":
     main()
-    show_desigualdade_page()
+    show_renda_page()

@@ -51,7 +51,8 @@ def get_data(table_name):
 def carregar_dados():
     tabelas = [
         "fato_populacao_anual",
-        "fato_piramide_etaria"]
+        "fato_piramide_etaria",
+        "stg_ibge__populacao_mensal"]
     
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
@@ -75,9 +76,36 @@ def show_pop_page():
     ))
 
     fig.update_layout(
-        title='População: Anual',
+        title='População Anual (Mil pessoas) - Fonte: IBGE',
         xaxis_title='Ano',
         yaxis_title='População',
+        yaxis=dict(range=[190000, df_populacao_anual['Populacao_Anual'].max() + 5000]),
+        legend_title='Categoria',
+        plot_bgcolor='white'
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+############
+
+    df_populacao_mensal = dados['stg_ibge__populacao_mensal']
+    df_populacao_mensal['Data'] = pd.to_datetime(df_populacao_mensal['Data'])
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Bar(
+        x=df_populacao_mensal['Data'],
+        y=df_populacao_mensal['Populacao'],
+        marker_color='grey',
+        text=df_populacao_mensal['Populacao'],
+        textposition='auto'
+    ))
+
+    fig.update_layout(
+        title='População Mensal (Mil pessoas) - Fonte: IBGE',
+        xaxis_title='Ano',
+        yaxis_title='População',
+        yaxis=dict(range=[190000, df_populacao_mensal['Populacao'].max() + 5000]),
         legend_title='Categoria',
         plot_bgcolor='white'
     )
@@ -99,7 +127,7 @@ def show_pop_page():
     ))
 
     fig.update_layout(
-        title='Pirâmide Etária',
+        title='Distribuição percentual da população segundo grupos de idade (%) - Pirâmide Etária - Fonte: IBGE',
         xaxis_title='Idade',
         yaxis_title='Percentual da População (%)',
         legend_title='Categoria',

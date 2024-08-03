@@ -68,7 +68,7 @@ def show_credito_page():
     fig.add_trace(go.Scatter(
         x=df_carteira['Data'],
         y=df_carteira['Carteira_de_Credito'],
-        name='Carteira_de_Credito',
+        name='Carteira de Crédito',
         line=dict(color='blue'),
         text=df_carteira['Carteira_de_Credito'],
         textposition='top center'
@@ -77,7 +77,7 @@ def show_credito_page():
     fig.add_trace(go.Scatter(
         x=df_carteira['Data'],
         y=df_carteira['Carteira_de_Credito_PF'],
-        name='Carteira_de_Credito_PF',
+        name='Carteira de Crédito PF',
         line=dict(color='green'),
         text=df_carteira['Carteira_de_Credito_PF'],
         textposition='top center'
@@ -86,16 +86,16 @@ def show_credito_page():
     fig.add_trace(go.Scatter(
         x=df_carteira['Data'],
         y=df_carteira['Carteira_de_Credito_PJ'],
-        name='Carteira_de_Credito_PJ',
+        name='Carteira de Crédito PJ',
         line=dict(color='purple'),
         text=df_carteira['Carteira_de_Credito_PJ'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Carteira_de_Credito',
+        title='Saldo da carteira de crédito - Fonte: BACEN',
         xaxis_title='Data',
-        yaxis_title='Reais',
+        yaxis_title='Milhões de reais (R$)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
@@ -121,7 +121,7 @@ def show_credito_page():
     fig.add_trace(go.Bar(
         x=df_concessao['Data'],
         y=df_concessao['Concessao_de_Credito_PF'],
-        name='Concessao_de_Credito_PF',
+        name='Concessões de crédito PF',
         marker_color='green',
         text=df_concessao['Concessao_de_Credito_PF'],
         textposition='auto'
@@ -130,16 +130,16 @@ def show_credito_page():
     fig.add_trace(go.Bar(
         x=df_concessao['Data'],
         y=df_concessao['Concessao_de_Credito_PJ'],
-        name='Concessao_de_Credito_PJ',
+        name='Concessões de crédito PJ',
         marker_color='purple',
         text=df_concessao['Concessao_de_Credito_PJ'],
         textposition='auto'
     ))
 
     fig.update_layout(
-        title='Força de Trabalho',
+        title='Concessões de crédito - Fonte: BACEN',
         xaxis_title='Data',
-        yaxis_title='População',
+        yaxis_title='Milhões de reais (R$)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )

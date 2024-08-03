@@ -64,6 +64,7 @@ def main():
     dados = carregar_dados()
 
 def show_pib_page():
+    
     df_pib = dados['fato_pib_anual']
     df_pib['Data'] = pd.to_datetime(df_pib['Data'])
 
@@ -72,14 +73,14 @@ def show_pib_page():
     fig.add_trace(go.Bar(
         x=df_pib['Data'],
         y=df_pib['PIB_Anual'],
-        name='PIB: variação anual',
+        name='PIB Anual - variação em volume (%) - Fonte: IBGE',
         marker_color='#262730',
         text=df_pib['PIB_Anual'],
         textposition='auto'
     ))
 
     fig.update_layout(
-        title='PIB: Variação Anual',
+        title='PIB Anual - variação em volume (%) - Fonte: IBGE',
         xaxis_title='Ano',
         yaxis_title='Variação (%)',
         legend_title='Categoria',
@@ -97,40 +98,16 @@ def show_pib_page():
     fig.add_trace(go.Bar(
         x=df_pib_tri['Data'],
         y=df_pib_tri['PIB_Variacao_Trimestral'],
-        name='PIB: variação trimestral',
-        marker_color='#262730',
+        name='PIB - Taxa trimestre contra trimestre imediatamente anterior (%) - Fonte: IBGE',
+        marker_color='red',
         text=df_pib_tri['PIB_Variacao_Trimestral'],
         textposition='auto'
     ))
 
     fig.update_layout(
-        title='PIB: Variação Trimestral',
+        title='PIB - Taxa trimestre contra trimestre imediatamente anterior (%) - Fonte: IBGE',
         xaxis_title='Ano',
         yaxis_title='Variação (%)',
-        legend_title='Categoria',
-        plot_bgcolor='white'
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-#############
-    df_pib_anual_pc = dados['fato_pib_anual_pc']
-    df_pib_anual_pc['Data'] = pd.to_datetime(df_pib_anual_pc['Data'])
-
-    fig = go.Figure()
-
-    fig.add_trace(go.Bar(
-        x=df_pib_anual_pc['Data'],
-        y=df_pib_anual_pc['PIB_Anual'],
-        marker_color='#262730',
-        text=df_pib_anual_pc['PIB_Anual'],
-        textposition='auto'
-    ))
-
-    fig.update_layout(
-        title='PIB Per Capita: Valores Correntes',
-        xaxis_title='Ano',
-        yaxis_title='Reais (R$)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
@@ -147,7 +124,7 @@ def show_pib_page():
     fig.add_trace(go.Bar(
         x=df_nfsp['Data'],
         y=df_nfsp['NFSP_PIB_Setor_Publico_Mes'],
-        name='NFSP_PIB_Setor_Publico_Mes',
+        name='Fluxo Mensal',
         marker_color='blue',
         text=df_nfsp['NFSP_PIB_Setor_Publico_Mes'],
         textposition='auto'
@@ -156,16 +133,16 @@ def show_pib_page():
     fig.add_trace(go.Bar(
         x=df_nfsp['Data'],
         y=df_nfsp['NFSP_PIB_Setor_Publico_Ano'],
-        name='NFSP_PIB_Setor_Publico_Ano',
+        name='Fluxo Anual',
         marker_color='green',
         text=df_nfsp['NFSP_PIB_Setor_Publico_Ano'],
         textposition='auto'
     ))
 
     fig.update_layout(
-        title='Força de Trabalho',
+        title='Resultado primário do setor público consolidado (% PIB) - Fonte: BACEN',
         xaxis_title='Data',
-        yaxis_title='População',
+        yaxis_title='Percentual (%)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )
@@ -189,9 +166,9 @@ def show_pib_page():
     ))
 
     fig.update_layout(
-        title='Divida_Liquida_PIB_Setor_Publico',
+        title='Dívida líquida do setor público consolidado (% PIB) - Fonte: BACEN',
         xaxis_title='Data',
-        yaxis_title='Reais',
+        yaxis_title='Percentual (%)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )

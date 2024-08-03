@@ -95,10 +95,10 @@ def show_cambio_page():
     ))
 
     fig.update_layout(
-        title='Taxa de Câmbio',
+        title='Taxa de Câmbio (venda) - Fonte: BACEN',
         xaxis_title='Data',
-        yaxis_title='Taxa de Câmbio (R$)',
-        legend_title='Categoria',
+        yaxis_title='Reais (R$)',
+        legend_title='Moeda',
         plot_bgcolor='white'
     )
 

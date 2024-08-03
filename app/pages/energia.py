@@ -69,7 +69,7 @@ def show_energia_page():
         x=df_energia['Data'],
         y=df_energia['Energia_Industrial'],
         name='Industrial',
-        line=dict(color='pink'),
+        line=dict(color='black'),
         text=df_energia['Energia_Industrial'],
         textposition='top center'
     ))
@@ -102,9 +102,9 @@ def show_energia_page():
     ))
 
     fig.update_layout(
-        title='Energia Elétrica',
+        title='Consumo de Energia Elétrica - Fonte: BACEN',
         xaxis_title='Ano',
-        yaxis_title='Consumo de Energia (Kw/h)',
+        yaxis_title='Consumo de Energia (GWh)',
         legend_title='Categoria',
         plot_bgcolor='white'
     )

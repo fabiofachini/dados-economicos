@@ -72,7 +72,7 @@ def show_educacao_page():
         y=df_instrucao['Sem Instrução'],
         mode='lines+markers',
         name='Sem Instrução',
-        line=dict(color='pink'),
+        line=dict(color='black'),
         text=df_instrucao['Sem Instrução'],
         textposition='top center'
     ))
@@ -108,10 +108,10 @@ def show_educacao_page():
     ))    
 
     fig.update_layout(
-        title='Instrução',
+        title='Pessoas de 14 anos ou mais de idade por nível de instrução - Fonte: IBGE',
         xaxis_title='Ano',
-        yaxis_title='Instrução',
-        legend_title='Categoria',
+        yaxis_title='População Milhões',
+        legend_title='Instrução',
         plot_bgcolor='white'
     )
 
@@ -128,7 +128,7 @@ def show_educacao_page():
         y=df_analfabetismo['Taxa_de_Analfabetismo_Mulheres'],
         mode='lines+markers',
         name='Mulheres',
-        line=dict(color='pink'),
+        line=dict(color='black'),
         text=df_analfabetismo['Taxa_de_Analfabetismo_Mulheres'],
         textposition='top center'
     ))
@@ -154,10 +154,10 @@ def show_educacao_page():
     ))
 
     fig.update_layout(
-        title='Analfabetismo',
+        title='Taxa de analfabetismo das pessoas de 15 anos ou mais de idade - Fonte: IBGE',
         xaxis_title='Ano',
         yaxis_title='Taxa de Analfabetismo (%)',
-        legend_title='Categoria',
+        legend_title='Sexo',
         plot_bgcolor='white'
     )
 

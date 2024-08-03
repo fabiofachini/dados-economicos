@@ -107,7 +107,7 @@ def show_cambio_page():
     ))
 
     fig.update_layout(
-        title='IPCA: Variação %',
+        title='IPCA - Variação mensal, acumulada no ano, acumulada em 12 meses e meta anual - Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='Variação (%)',
         barmode='group',
@@ -152,7 +152,7 @@ def show_cambio_page():
     ))
 
     fig.update_layout(
-        title='INPC: Variação %',
+        title='INPC - Variação mensal, acumulada no ano, acumulada em 12 meses e meta anual - Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='Variação (%)',
         barmode='group',
@@ -179,7 +179,7 @@ def show_cambio_page():
     ))
 
     fig.update_layout(
-        title='IGPM: Variação %',
+        title='IGP-M - Variação mensal - Fonte: BACEN',
         xaxis_title='Data',
         yaxis_title='Variação (%)',
         barmode='group',

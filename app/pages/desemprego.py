@@ -69,7 +69,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Desalentados'],
-        name='Taxa de Desalentados',
+        name='Desalentados',
         line=dict(color='blue'),
         text=df_desemprego['Taxa_de_Desalentados'],
         textposition='top center'
@@ -78,7 +78,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Desocupacao'],
-        name='Taxa de Desocupação',
+        name='Desocupação',
         line=dict(color='green'),
         text=df_desemprego['Taxa_de_Desocupacao'],
         textposition='top center'
@@ -87,7 +87,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Informalidade'],
-        name='Taxa de Informalidade',
+        name='Informalidade',
         line=dict(color='purple'),
         text=df_desemprego['Taxa_de_Informalidade'],
         textposition='top center'
@@ -96,7 +96,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Part_Forca_de_Trabalho'],
-        name='Taxa de Part. Força de Trabalho',
+        name='Part. Força de Trabalho',
         line=dict(color='orange'),
         text=df_desemprego['Taxa_de_Part_Forca_de_Trabalho'],
         textposition='top center'
@@ -105,14 +105,14 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_desemprego['Data'],
         y=df_desemprego['Taxa_de_Subocupacao'],
-        name='Taxa de Subocupação',
+        name='Subocupação',
         line=dict(color='brown'),
         text=df_desemprego['Taxa_de_Subocupacao'],
         textposition='top center'
     ))
 
     fig.update_layout(
-        title='Taxas de Desemprego',
+        title='Taxas de indicadores de desemprego (%) - Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='Taxa (%)',
         legend_title='Categoria',
@@ -158,7 +158,7 @@ def show_desemprego_page():
     fig.add_trace(go.Scatter(
         x=df_forca_trab['Data'],
         y=df_forca_trab['Fora_Forca_Trabalho'],
-        name='Fora Força Trabalho',
+        name='Fora da Força Trabalho',
         line=dict(color='orange'),
         text=df_forca_trab['Fora_Forca_Trabalho'],
         textposition='top center'
@@ -184,7 +184,7 @@ def show_desemprego_page():
 
 
     fig.update_layout(
-        title='Força de Trabalho',
+        title='Indicadores de força de trabalho (mil pessoas) - Fonte: IBGE',
         xaxis_title='Data',
         yaxis_title='População',
         legend_title='Categoria',

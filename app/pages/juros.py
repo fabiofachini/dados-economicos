@@ -76,7 +76,7 @@ def show_juros_page():
     ))
 
     fig.update_layout(
-        title='Taxas Selic: Anualizada',
+        title='Taxa de juros - Selic anualizada base 252 - Fonte: BACEN',
         xaxis_title='Ano',
         yaxis_title='Taxa (%)',
         legend_title='Categoria',
