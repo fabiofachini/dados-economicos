@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pyodbc
+import pymssql
 import os
 import time
 from dotenv import load_dotenv
@@ -20,23 +20,21 @@ def connect_to_db():
     delay = 10  # segundos
     for i in range(retries):
         try:
-            connection = pyodbc.connect(
-                'DRIVER={ODBC Driver 18 for SQL Server};'
-                f'SERVER={os.getenv("DB_SERVER")};'
-                f'DATABASE={os.getenv("DB_DATABASE")};'
-                f'UID={os.getenv("DB_USERNAME")};'
-                f'PWD={os.getenv("DB_PASSWORD")}'
+            connection = pymssql.connect(
+                server=os.getenv("DB_SERVER"),
+                user=os.getenv("DB_USERNAME"),
+                password=os.getenv("DB_PASSWORD"),
+                database=os.getenv("DB_DATABASE")
             )
             print("Conexão bem-sucedida")
             return connection
-        except pyodbc.Error as e:
+        except pymssql.DatabaseError as e:
             print(f"Tentativa {i+1} falhou: {e}")
             if i < retries - 1:
                 print(f"Tentando novamente em {delay} segundos...")
                 time.sleep(delay)
             else:
                 raise
-
 # Função para obter dados de uma tabela específica
 @st.cache_data(ttl=85000)
 def get_data(table_name):

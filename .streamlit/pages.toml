@@ -1,4 +1,9 @@
 [[pages]]
+path = "main.py"
+name = "Inicial"
+icon = "📊"
+
+[[pages]]
 path = "pages/pib.py"
 name = "PIB"
 icon = "📊"

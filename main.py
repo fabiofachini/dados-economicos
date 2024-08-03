@@ -8,9 +8,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Adiciona o título da página atual
-add_page_title()
-
 # Carrega as páginas do arquivo de configuração (toml)
 show_pages_from_config()
 
