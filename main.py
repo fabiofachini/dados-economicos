@@ -1,33 +1,21 @@
-import os
 import streamlit as st
-from st_pages import Page, show_pages
+from st_pages import show_pages_from_config, add_page_title
 
+# Configurações iniciais da página
 st.set_page_config(
     page_title="Dados Econômicos",
-    page_icon="favicon.ico",  # Certifique-se de que o favicon.ico está no mesmo diretório
+    page_icon="favicon.ico",
     layout="wide"
 )
 
-show_pages(
-    [   Page("main.py", "Principal", "🏠"),
-        Page("pages/pib.py", "PIB", "📊"),
-        Page("pages/populacao.py", "População", "👥"),
-        Page("pages/desemprego.py", "Desemprego", "📉"),
-        Page("pages/desigualdade.py", "Desigualdade", "⚖️"),
-        Page("pages/renda.py", "Renda", "💰"),
-        Page("pages/inflacao.py", "Inflação", "💸"),
-        Page("pages/juros.py", "Juros", "📈"),
-        Page("pages/credito.py", "Crédito", "💳"),
-        Page("pages/cambio.py", "Câmbio", "💱"),
-        Page("pages/educacao.py", "Educação", "📚"),
-        Page("pages/confianca.py", "Confiança", "👍"),
-        Page("pages/energia.py", "Energia", "⚡")
-    ]
-)
+# Adiciona o título da página atual
+add_page_title()
 
-# Título para a página principal
+# Carrega as páginas do arquivo de configuração (toml)
+show_pages_from_config()
+
+# Conteúdo da página principal
 st.title("Dados da Economia Brasileira")
-# Descrição Inicial
 st.write("""
 Bem-vindo ao projeto de engenharia e análise de Dados Econômicos da Economia Brasileira.
 Este projeto tem como objetivo fornecer informações atualizadas sobre a economia do Brasil

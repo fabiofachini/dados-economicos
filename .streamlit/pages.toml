@@ -1,0 +1,59 @@
+[[pages]]
+path = "pages/pib.py"
+name = "PIB"
+icon = "📊"
+
+[[pages]]
+path = "pages/populacao.py"
+name = "População"
+icon = "👥"
+
+[[pages]]
+path = "pages/desemprego.py"
+name = "Desemprego"
+icon = "📉"
+
+[[pages]]
+path = "pages/desigualdade.py"
+name = "Desigualdade"
+icon = "⚖️"
+
+[[pages]]
+path = "pages/renda.py"
+name = "Renda"
+icon = "💰"
+
+[[pages]]
+path = "pages/inflacao.py"
+name = "Inflação"
+icon = "💸"
+
+[[pages]]
+path = "pages/juros.py"
+name = "Juros"
+icon = "📈"
+
+[[pages]]
+path = "pages/credito.py"
+name = "Crédito"
+icon = "💳"
+
+[[pages]]
+path = "pages/cambio.py"
+name = "Câmbio"
+icon = "💱"
+
+[[pages]]
+path = "pages/educacao.py"
+name = "Educação"
+icon = "📚"
+
+[[pages]]
+path = "pages/confianca.py"
+name = "Confiança"
+icon = "👍"
+
+[[pages]]
+path = "pages/energia.py"
+name = "Energia"
+icon = "⚡"
