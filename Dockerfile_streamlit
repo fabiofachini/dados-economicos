@@ -30,6 +30,7 @@ EXPOSE 8501
 
 # Define a variável de ambiente para o Streamlit
 ENV STREAMLIT_PORT=8501
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 
 # Comando padrão a ser executado quando o contêiner for iniciado
-CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "main.py", "--server.address=0.0.0.0"]
