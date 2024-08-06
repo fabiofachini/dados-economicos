@@ -58,18 +58,18 @@ def executar_scripts():
 
 def acessar_paginas_streamlit():
     urls = [
-        "http://20.14.251.70:8501/PIB",
-        "http://20.14.251.70:8501/População",
-        "http://20.14.251.70:8501/Desemprego",
-        "http://20.14.251.70:8501/Desigualdade",
-        "http://20.14.251.70:8501/Renda",
-        "http://20.14.251.70:8501/Inflação",
-        "http://20.14.251.70:8501/Juros",
-        "http://20.14.251.70:8501/Crédito",
-        "http://20.14.251.70:8501/Câmbio",
-        "http://20.14.251.70:8501/Educação",
-        "http://20.14.251.70:8501/Confiança",
-        "http://20.14.251.70:8501/Energia"
+        "https://dadoseconomicos.streamlit.app/PIB",
+        "https://dadoseconomicos.streamlit.app/População",
+        "https://dadoseconomicos.streamlit.app/Desemprego",
+        "https://dadoseconomicos.streamlit.app/Desigualdade",
+        "https://dadoseconomicos.streamlit.app/Renda",
+        "https://dadoseconomicos.streamlit.app/Inflação",
+        "https://dadoseconomicos.streamlit.app/Juros",
+        "https://dadoseconomicos.streamlit.app/Crédito",
+        "https://dadoseconomicos.streamlit.app/Câmbio",
+        "https://dadoseconomicos.streamlit.app/Educação",
+        "https://dadoseconomicos.streamlit.app/Confiança",
+        "https://dadoseconomicos.streamlit.app/Energia"
     ]
     
     for url in urls:
