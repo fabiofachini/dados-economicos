@@ -31,6 +31,5 @@ st.markdown("---")
 st.markdown("### 👥 Desenvolvido por:")
 st.write("""
 - 👨‍💻 [Fábio Fachini](https://www.linkedin.com/in/fabio-fachini/)
-- 👨‍💼 [Felipe Sens Bonetto](https://www.linkedin.com/in/felipe-sens-bonetto-128235144/)
 - 👨‍🔧 [Julio Bonckewitz](https://www.linkedin.com/in/bonckewitz/)
 """)
