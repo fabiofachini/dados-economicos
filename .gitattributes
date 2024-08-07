@@ -1,3 +1,11 @@
 # Auto detect text files and perform LF normalization
 *.sql linguist-language=SQL
 *.py linguist-language=Python
+
+*.md linguist-documentation=true
+*.sh linguist-language=Shell
+*.lock linguist-vendored
+*.roff linguist-vendored
+*.out linguist-vendored
+*.log linguist-vendored
+*.conf linguist-vendored
