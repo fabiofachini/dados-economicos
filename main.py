@@ -1,5 +1,5 @@
 import streamlit as st
-from st_pages import show_pages_from_config, add_page_title
+from st_pages import show_pages_from_config
 
 # Configurações iniciais da página
 st.set_page_config(

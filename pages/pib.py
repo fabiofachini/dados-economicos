@@ -5,11 +5,9 @@ import os
 import time
 from dotenv import load_dotenv
 import plotly.graph_objects as go
-from st_pages import Page, show_pages, add_page_title, hide_pages
 
 # Configurações da página
 st.set_page_config(page_title="PIB", layout="wide")
-add_page_title()
 
 # Atualize o caminho para o arquivo .env
 load_dotenv()
