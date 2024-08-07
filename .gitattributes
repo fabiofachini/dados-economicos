@@ -1,0 +1,13 @@
+# Marca todos os arquivos `.py` como Python
+*.py linguist-language=Python
+
+# Marca todos os arquivos `.sql` como SQL
+*.sql linguist-language=SQL
+
+# Ignora arquivos de configuração e documentação nas estatísticas de linguagem
+*.yaml linguist-vendored
+*.yml linguist-vendored
+*.md linguist-documentation=true
+
+# Marca arquivos específicos de configuração como Shell
+*.sh linguist-language=Shell

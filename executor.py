@@ -2,8 +2,12 @@ import pyodbc
 import time
 import subprocess
 import os
-import requests
 from dotenv import load_dotenv
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+import time
 
 # Carregar as variáveis de ambiente do arquivo .env
 load_dotenv()
@@ -57,31 +61,41 @@ def executar_scripts():
         print(f"Erro ao executar o script: {e}")
 
 def acessar_paginas_streamlit():
+    # Configura o ChromeOptions para executar o navegador em modo headless
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    
+    # Inicializa o WebDriver do Chrome
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    
     urls = [
-        "https://dadoseconomicos.streamlit.app/PIB",
-        "https://dadoseconomicos.streamlit.app/População",
-        "https://dadoseconomicos.streamlit.app/Desemprego",
-        "https://dadoseconomicos.streamlit.app/Desigualdade",
-        "https://dadoseconomicos.streamlit.app/Renda",
-        "https://dadoseconomicos.streamlit.app/Inflação",
-        "https://dadoseconomicos.streamlit.app/Juros",
-        "https://dadoseconomicos.streamlit.app/Crédito",
-        "https://dadoseconomicos.streamlit.app/Câmbio",
-        "https://dadoseconomicos.streamlit.app/Educação",
-        "https://dadoseconomicos.streamlit.app/Confiança",
-        "https://dadoseconomicos.streamlit.app/Energia"
+        "https://dadoseconomicos.streamlit.app/PIB?nocache=true",
+        "https://dadoseconomicos.streamlit.app/População?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Desemprego?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Desigualdade?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Renda?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Inflação?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Juros?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Crédito?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Câmbio?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Educação?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Confiança?nocache=true",
+        "https://dadoseconomicos.streamlit.app/Energia?nocache=true"
     ]
     
     for url in urls:
         try:
-            response = requests.get(url)
-            time.sleep(5)
-            if response.status_code == 200:
-                print(f"Página acessada com sucesso: {url}")
-            else:
-                print(f"Falha ao acessar a página {url}: {response.status_code}")
-        except requests.exceptions.RequestException as e:
+            print(f"Acessando: {url}")
+            driver.get(url)
+            time.sleep(10)  # Aumente o tempo de espera se necessário
+            print(f"Página acessada com sucesso: {url}")
+        except Exception as e:
             print(f"Erro ao acessar a página {url}: {e}")
+    
+    # Fecha o navegador
+    driver.quit()
 
 # Chamando a função para executar os scripts
 if __name__ == "__main__":
