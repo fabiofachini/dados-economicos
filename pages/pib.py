@@ -137,7 +137,7 @@ def show_pib_page():
     ))
 
     fig.update_layout(
-        title='Resultado primário do setor público consolidado (% PIB) - Fonte: BACEN',
+        title='Déficit primário do setor público consolidado (% PIB) - Fonte: BACEN',
         xaxis_title='Data',
         yaxis_title='Percentual (%)',
         legend_title='Categoria',
