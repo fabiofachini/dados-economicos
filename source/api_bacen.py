@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from time import sleep
+import urllib
 
 # Lista de URLs, descritores e descrições
 series = [
@@ -44,7 +45,8 @@ username = os.getenv("DB_USERNAME")
 password = os.getenv("DB_PASSWORD")
 
 # Criar a conexão com o banco de dados
-conn_str = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC Driver 18 for SQL Server"
+params = urllib.parse.quote_plus(f"DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}")
+conn_str = f"mssql+pyodbc:///?odbc_connect={params}"
 engine = create_engine(conn_str)
 
 # Loop pelas séries para fazer as requisições e salvar no banco de dados

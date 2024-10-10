@@ -4,11 +4,11 @@ config-version: 2
 
 profile: dados-economicos
 
-model-paths: ["warehouse/models/staging", "warehouse/models/intermediate", "warehouse/models/marts"]
-analysis-paths: ["warehouse/models/analysis"]
-test-paths: ["warehouse/models/tests"]
-seed-paths: ["warehouse/models/data"]
-snapshot-paths: ["warehouse/models/snapshots"]
+model-paths: ["models/staging", "models/intermediate", "models/marts"]
+analysis-paths: ["models/analysis"]
+test-paths: ["models/tests"]
+seed-paths: ["models/data"]
+snapshot-paths: ["models/snapshots"]
 
 target-path: target
 clean-targets:
