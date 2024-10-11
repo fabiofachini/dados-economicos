@@ -57,6 +57,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -88,6 +92,15 @@ def show_desigualdade_page():
 
     st.plotly_chart(fig, use_container_width=True)
     
+    # Botão de download
+    csv = convert_df(df_renda)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="renda.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ###########
 
     df_pop = dados['fato_classe_social_pop']
@@ -115,6 +128,15 @@ def show_desigualdade_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_pop)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="pop.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 ###########
 
@@ -144,6 +166,15 @@ def show_desigualdade_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_massa)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="massa.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ###########
 
     df_limite_classe_social = dados['stg_ibge__limites_classe_social']
@@ -167,6 +198,15 @@ def show_desigualdade_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_limite_classe_social)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="limite.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 #############
 
@@ -195,6 +235,15 @@ def show_desigualdade_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_gini)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="gini.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 ##############
 

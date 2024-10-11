@@ -56,6 +56,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -86,6 +90,15 @@ def show_pib_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_pib)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="pib.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 #############
     df_pib_tri = dados['fato_pib_variacao_tri']
     df_pib_tri['Data'] = pd.to_datetime(df_pib_tri['Data'])
@@ -110,6 +123,15 @@ def show_pib_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_pib_tri)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="pib_tri.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 #############
 
@@ -146,6 +168,15 @@ def show_pib_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_nfsp)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="nfsp.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ###############
 
     df_divida_pib = dados['stg_bacen__divida_liquida_pib_setor_publico']
@@ -172,6 +203,14 @@ def show_pib_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_divida_pib)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="divida.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 if __name__ == "__main__":
     main()

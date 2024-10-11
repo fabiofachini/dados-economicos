@@ -14,11 +14,15 @@ show_pages_from_config()
 # Conteúdo da página principal
 st.title("Dados da Economia Brasileira")
 st.write("""
-Bem-vindo ao projeto de engenharia e análise de Dados Econômicos da Economia Brasileira.
-Este projeto tem como objetivo fornecer informações atualizadas sobre a economia do Brasil
-através de dados coletados de fontes confiáveis, como IBGE e BACEN.
-Os dados são processados e disponibilizados diariamente às 09h.
+Bem-vindo ao projeto de engenharia e análise de Dados Econômicos da Economia Brasileira.""")
+
+st.write("""Este projeto tem como objetivo fornecer informações atualizadas sobre a economia do Brasil,
+por meio de dados coletados do IBGE e do Banco Central do Brasil.
+Os dados são processados e disponibilizados diariamente às 09h.""")
+
+st.write("""⬅️ Acesse os tópicos no menu lateral.
 """)
+
 st.info("Acesse o código no repositório [Github](https://github.com/fabiofachini/dados-economicos)")
 
 st.markdown("### 🏛️ Diagrama da Arquitetura")
@@ -28,7 +32,7 @@ st.image("img.gif")
 st.markdown("---")
 
 # Créditos dos Desenvolvedores
-st.markdown("### 👥 Desenvolvido por:")
+st.markdown("### 💻 Desenvolvido por:")
 st.write("""
 - 👨‍💻 [Fábio Fachini](https://www.linkedin.com/in/fabio-fachini/)
 - 👨‍🔧 [Julio Bonckewitz](https://www.linkedin.com/in/bonckewitz/)

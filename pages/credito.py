@@ -52,6 +52,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -99,6 +103,15 @@ def show_credito_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_carteira)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="carteira.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ########
 
     df_concessao = dados['int_credito_joined']
@@ -142,6 +155,15 @@ def show_credito_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_concessao)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="concessao.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 if __name__ == "__main__":
     main()

@@ -53,6 +53,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -114,6 +118,16 @@ def show_educacao_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+
+    # Botão de download
+    csv = convert_df(df_instrucao)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="instrucao.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ##########
     df_analfabetismo = dados['fato_analfabetismo']
     df_analfabetismo['Data'] = pd.to_datetime(df_analfabetismo['Data'])
@@ -159,6 +173,15 @@ def show_educacao_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_analfabetismo)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="analfabetismo.csv",
+        mime="text/csv",
+        icon=":material/download:")
 
 if __name__ == "__main__":
     main()

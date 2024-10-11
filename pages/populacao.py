@@ -54,6 +54,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -83,6 +87,16 @@ def show_pop_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_populacao_anual)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="populacao.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
+
 ############
 
     df_populacao_mensal = dados['stg_ibge__populacao_mensal']
@@ -109,6 +123,15 @@ def show_pop_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_populacao_mensal)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="populacao_m.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ##########
 
     df_piramide_etaria = dados['fato_piramide_etaria']
@@ -132,6 +155,16 @@ def show_pop_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_piramide_etaria)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="piramide.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 
 if __name__ == "__main__":
     main()

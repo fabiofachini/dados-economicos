@@ -56,6 +56,10 @@ def carregar_dados():
     dados = {tabela: get_data(tabela) for tabela in tabelas}
     return dados
 
+@st.cache_data(ttl=85000)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
+
 def main():
     global dados
     dados = carregar_dados()
@@ -106,6 +110,15 @@ def show_renda_page():
     
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_rendimento_atividade)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="atividade.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 #########
     # Supondo que 'dados' é um dicionário com DataFrames, ajuste conforme necessário
     df_rendimento_posicao = dados['fato_rendimento_posicao']
@@ -144,6 +157,15 @@ def show_renda_page():
     
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_rendimento_posicao)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="posicao.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ##########
 
     df_rend_todos = dados['stg_ibge__rendimento_todos_os_trabalhos']
@@ -171,6 +193,15 @@ def show_renda_page():
 
     st.plotly_chart(fig, use_container_width=True)
 
+    # Botão de download
+    csv = convert_df(df_rend_todos)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="rendimento.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ##########
     df_massa = dados['stg_ibge__massa_salarial_habitualmente']
     df_massa['Data'] = pd.to_datetime(df_massa['Data'])
@@ -196,6 +227,16 @@ def show_renda_page():
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+    # Botão de download
+    csv = convert_df(df_massa)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="massa.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 ##############
 
     df_endividamento_f = dados['fato_endividamento']
@@ -232,6 +273,15 @@ def show_renda_page():
 
     st.plotly_chart(fig, use_container_width=True)
     
+    # Botão de download
+    csv = convert_df(df_endividamento_f)
+    st.download_button(
+        label="Download dos dados em CSV",
+        data=csv,
+        file_name="endividamento.csv",
+        mime="text/csv",
+        icon=":material/download:")
+
 if __name__ == "__main__":
     main()
     show_renda_page()
