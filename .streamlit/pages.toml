@@ -4,6 +4,11 @@ name = "Inicial"
 icon = "🏠"
 
 [[pages]]
+path = "pages/calendario.py"
+name = "Calendário"
+icon = "📅"
+
+[[pages]]
 path = "pages/pib.py"
 name = "PIB"
 icon = "📊"
